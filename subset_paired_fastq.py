@@ -1,8 +1,16 @@
 """
-    Fetch reads from query fastq in target fastq.  Fetches based on name of read minus the last char, which is usually designates the direction of the read.
+    Retrieve subset of mate pair fastq records from a superset mate pair filage:
+    Usage:
+        %s subset_mate1.fastq superset_mate2.fastq > subset_mate2.fastq
 """
 
 import sys
+
+if len(sys.argv) != 3:
+    print sys.argv
+    print __doc__
+    sys.exit()
+
 query_fastq_file = sys.argv[1]
 target_fastq_file = sys.argv[2]
 
