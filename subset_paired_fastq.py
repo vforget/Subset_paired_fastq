@@ -1,5 +1,5 @@
 """
-    Retrieve subset of mate pair fastq records from a superset mate pair filage:
+    Retrieve subset of mate pair fastq records from a superset mate pair file:
     Usage:
         %s subset_mate1.fastq superset_mate2.fastq > subset_mate2.fastq
 """
