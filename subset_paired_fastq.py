@@ -15,19 +15,19 @@ query_fastq_file = sys.argv[1]
 target_fastq_file = sys.argv[2]
 
 th = open(target_fastq_file)
+qc = 0
+tc = 0
 if __name__ == '__main__':
     for qline in open(query_fastq_file):
-        if qline[0] == '@':
-           q = qline.split()[0][:-1]
-           while True:
-               tline = th.readline()
-               if tline[0] == '@':
-                   t = tline.split()[0][:-1]
-                   if t == q:
-                       print tline,
-                       print th.readline(),
-                       print th.readline(),
-                       print th.readline(),
-                       break
-
-
+        if qline[0:4] == '@HWI':
+            q = qline.split()[0]
+            while True:
+                tline = th.readline()
+                if tline[0:4] == '@HWI':
+                    t = tline.split()[0]
+                    if t == q:
+                        print tline,
+                        print th.readline(),
+                        print th.readline(),
+                        print th.readline(),
+                        break
